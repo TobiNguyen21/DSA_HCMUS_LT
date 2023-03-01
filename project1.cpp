@@ -114,10 +114,9 @@ string minCapacityClass(int classNum, vector<Class> &classes)
     }
     return "";
 }
-
-int findMaxGrade(int classNum, vector<Class> &classes)
+double findMaxGrade(int classNum, vector<Class> &classes)
 {
-    int maxGrade = 0;
+    double maxGrade = 0;
     for (int i = 0; i < classNum; i++)
     {
         for (int j = 0; j < classes.at(i).capacity; j++)
@@ -132,7 +131,7 @@ int findMaxGrade(int classNum, vector<Class> &classes)
 }
 
 // The student with the highest grade
-Student studentWithMaxGrade(int maxGrade, int classNum, vector<Class> &classes)
+Student studentWithMaxGrade(double maxGrade, int classNum, vector<Class> &classes)
 {
 
     for (int i = 0; i < classNum; i++)
@@ -149,7 +148,7 @@ Student studentWithMaxGrade(int maxGrade, int classNum, vector<Class> &classes)
 }
 
 // Class with the student has max garde
-Class findClassMaxGrade(int maxGrade, int classNum, vector<Class> &classes)
+Class findClassMaxGrade(double maxGrade, int classNum, vector<Class> &classes)
 {
     int max = 0;
     for (int i = 0; i < classNum; i++)
@@ -185,14 +184,21 @@ Class findClassMaxGrade(int maxGrade, int classNum, vector<Class> &classes)
 
 int main()
 {
-    int classNum;
-    vector<Class> classes;
+    // int classNum;
+    // vector<Class> classes;
 
-    cout << "Class Numbers: ";
-    cin >> classNum;
+    // cout << "Class Numbers: ";
+    // cin >> classNum;
 
-    // a Enter the list of classes
-    addClass(classNum, classes);
+    // // a Enter the list of classes
+    // addClass(classNum, classes);
+
+    int classNum = 3;
+    vector<Class> classes = {
+        {"12a1", 7, {{"Nguyen Van A", 8.2}, {"Nguyen Van B", 7.9}, {"Nguyen Van C", 8.2}, {"Nguyen Van D", 7.9}, {"Nguyen Van E", 8.2}, {"Nguyen Van F", 9}, {"Nguyen Van G", 7.2}}},
+        {"12a2", 6, {{"Le Van A", 8.1}, {"Le Van B", 7.5}, {"Le Van C", 8.0}, {"Le Van D", 9.0}, {"Le Van E", 8.3}, {"Le Van F", 9.1}}},
+        {"12a3", 8, {{"Dinh Van A", 7.2}, {"Dinh Van B", 7.6}, {"Dinh Van C", 8.2}, {"Dinh Van D", 9.0}, {"Dinh Van E", 8.2}, {"Dinh Van F", 9.1}, {"Dinh Van G", 9.8}, {"Dinh Van H", 8.2}}},
+    };
 
     cout << "\n--------------------------------------------------------";
     // b
@@ -208,7 +214,7 @@ int main()
     cout << minCapacityClass(classNum, classes);
 
     // // e
-    int maxGrade = findMaxGrade(classNum, classes);
+    double maxGrade = findMaxGrade(classNum, classes);
     cout << "\nThe student with the highest grade: ";
     cout << studentWithMaxGrade(maxGrade, classNum, classes).name << " with grade: " << studentWithMaxGrade(maxGrade, classNum, classes).grade;
 
